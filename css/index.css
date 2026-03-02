@@ -1,7 +1,11 @@
 /* Defaults */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Work+Sans:wght@400;500&display=swap');
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+	--font-body: 'Work Sans', sans-serif;
+ 	--font-display: 'Syne', sans-serif;
+}
 }
 
 /* Theme colors */
@@ -9,10 +13,12 @@
 	--color-gray-20: #e0e0e0;
 	--color-gray-50: #C0C0C0;
 	--color-gray-90: #333;
+	--charcoal-ink: #2C2C2C;
+	--deep-carbon: #1A1A1A;
 
-	--background-color: #fff;
+	--background-color: #F4F1EA;
 
-	--text-color: var(--color-gray-90);
+	--text-color: var(--charcoal-ink);
 	--text-color-link: #082840;
 	--text-color-link-active: #5f2b48;
 	--text-color-link-visited: #17050F;
@@ -35,6 +41,21 @@
 	}
 }
 
+/* General paper overlay */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999; /* Zorgt dat het over de hele pagina ligt */
+  opacity: 0.08; /* Houd dit heel laag voor een subtiel effect */
+  pointer-events: none; /* Zorgt dat je nog steeds op links kunt klikken */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
 
 /* Global stylesheet */
 * {
@@ -49,7 +70,7 @@ html,
 body {
 	padding: 0;
 	margin: 0 auto;
-	font-family: var(--font-family);
+	font-family: var(--font-body);
 	color: var(--text-color);
 	background-color: var(--background-color);
 }
@@ -59,6 +80,19 @@ html {
 body {
 	max-width: 40em;
 }
+
+h1, h2, h3, .display-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem; /* Lekker groot voor je koppen */
+  letter-spacing: -0.02em;
+}
+
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
 .visually-hidden:not(:focus):not(:active) {
