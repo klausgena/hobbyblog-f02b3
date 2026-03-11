@@ -3,18 +3,17 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-
 import pluginFilters from "./_config/filters.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-export default async function(eleventyConfig) {
+export default async function (eleventyConfig) {
 	// Drafts, see also _data/eleventyDataSchema.js
 	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
 		if (data.draft) {
 			data.title = `${data.title} (draft)`;
 		}
 
-		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+		if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 			return false;
 		}
 	});
@@ -105,6 +104,24 @@ export default async function(eleventyConfig) {
 			animated: true,
 		},
 	});
+	// Mijn shortcodes
+
+	// Container shortcode (voor de teksthelft)
+	eleventyConfig.addPairedShortcode("splitContainer", function (content) {
+		const parts = content.split('---split---');
+		const textPart = parts[0] || "";
+		const imagePart = parts[1] || "";
+
+		return `
+      <section class="split-layout">
+        <article class="content">
+          ${textPart}
+        </article>
+        <aside class="images">
+          ${imagePart}
+        </aside>
+      </section>`;
+	});
 
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
@@ -156,6 +173,7 @@ export const config = {
 	// -----------------------------------------------------------------
 	// Optional items:
 	// -----------------------------------------------------------------
+
 
 	// If your site deploys to a subdirectory, change `pathPrefix`.
 	// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
