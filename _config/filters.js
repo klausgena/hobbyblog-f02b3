@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
+import myTags from "../_data/tagList.js";
 
-export default function(eleventyConfig) {
+export default function (eleventyConfig) {
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
 		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
 		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).setLocale("nl").toFormat(format || "dd LLLL yyyy");
@@ -13,10 +14,10 @@ export default function(eleventyConfig) {
 
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
-		if(!Array.isArray(array) || array.length === 0) {
+		if (!Array.isArray(array) || array.length === 0) {
 			return [];
 		}
-		if( n < 0 ) {
+		if (n < 0) {
 			return array.slice(n);
 		}
 
@@ -40,4 +41,17 @@ export default function(eleventyConfig) {
 	eleventyConfig.addFilter("sortAlphabetically", strings =>
 		(strings || []).sort((b, a) => b.localeCompare(a))
 	);
+
+	// Mijn filters
+
+	eleventyConfig.addFilter("getLogoTag", (tagList) => {
+		if (!tagList) return "hobbyblog";
+		let logoTag = tagList.find(tag => myTags.includes(tag));
+		if (!logoTag) return "hobbyblog";
+		return logoTag;
+	});
+
+	eleventyConfig.addFilter("debug", (content) => {
+		return `<pre style="color: red; background: yellow;">${JSON.stringify(content, null, 2)}</pre>`;
+	});
 };

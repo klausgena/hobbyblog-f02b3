@@ -1,6 +1,6 @@
 ---
 title: "Miroe Mir"
-date: 2026-01-09
+period: "2025"
 tags: ["fotograferen"]
 ---
 

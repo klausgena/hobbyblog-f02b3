@@ -1,6 +1,6 @@
 ---
 title: "The Hero's Journey"
-date: 2026-01-08
+period: "2024"
 tags: ["fotograferen"]
 ---
 {% splitContainer %}
