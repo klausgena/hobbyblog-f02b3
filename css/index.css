@@ -277,6 +277,45 @@ code {
 	/* Ruimte tussen logo en tekst */
 }
 
+#site-header {
+	
+  /* Vastzetten aan de bovenkant */
+  position: sticky;
+  top: 0;
+  
+  /* Belangrijk: zorg voor een achtergrondkleur, anders schijnt de tekst van het artikel er doorheen */
+  background-color: white; 
+  
+  /* Zorg dat de header bovenop alles blijft liggen */
+  z-index: 100;
+  
+  /* Optioneel: een lijntje of schaduw zodat je ziet dat hij loskomt van de content */
+  display: flex;
+  justify-content: flex-end; /* Duwt alles naar rechts */
+  align-items: center;
+}
+
+#site-header .home-logo {
+	height: 3em;
+	width: 3em;
+	margin-top: 0.5rem;
+	margin-right: 1rem;
+	display: block;
+
+/* 1. Maak het logo bleker (0.4 is 40% zichtbaarheid) */
+    opacity: 0.4;
+    
+    /* 2. Zorg voor een vloeiende overgang (0.3 seconden) */
+	transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* 3. Het effect bij hoveren */
+#site-header .home-link:hover .home-logo {
+	transform: rotate(180deg);
+    opacity: 1; /* Volledige kleur */
+}
+
 .project-header img.header-logo {
 	/* Gebruik 'cap' of 'em' om de grootte te koppelen aan de teksthoogte */
 	height: 2em;

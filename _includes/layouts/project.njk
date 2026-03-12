@@ -16,12 +16,12 @@ layout: layouts/base.njk
 
 <ul class="header-meta">
 	<li>
-		&rarr; <time>{{ period }}</time>
+		(<time>{{ period }}</time>)
 	</li>
 	
 		{%- set tagUrl %}/tags/{{ logoTag | slugify }}/{% endset %}
 		<li>
-			in <a href="{{ tagUrl }}" class="post-tag">{{ logoTag }}</a>
+			&rarr; <a href="{{ tagUrl }}" class="post-tag">{{ logoTag }}</a>
 		
 												
 		</li>
