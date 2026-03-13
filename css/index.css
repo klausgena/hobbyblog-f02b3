@@ -48,6 +48,7 @@ body::before {
 /* Global stylesheet */
 * {
 	box-sizing: border-box;
+	font-size: clamp(1rem, 0.5rem + 1vw, 1.8rem);
 }
 
 @view-transition {
@@ -61,14 +62,36 @@ body {
 	font-family: var(--font-body);
 	color: var(--text-color);
 	background-color: var(--background-color);
+	height: 100%;
+
 }
 
 html {
 	overflow-y: scroll;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  /* Minimaal 100% van de viewport hoogte */
+  min-height: 100vh;
+}
+
+main {
+  /* Dit is de 'magie': main pakt alle resterende ruimte op, 
+     waardoor de footer naar beneden wordt geduwd */
+  flex: 1;
+}
+
+footer {
+  /* De footer blijft nu altijd onderaan, 
+     of de tekst nu kort is of heel lang */
+  flex-shrink: 0;
+}
+
 article {
-	max-width: 40em;
+	max-width: 42em;
+	justify-self: start;
 }
 
 h1,
@@ -83,7 +106,7 @@ h3,
 /* Category specific */
 
 h1.header-title {
-	font-size: 1em;
+	font-size: 1rem;
 	display: inline;
 }
 
@@ -110,18 +133,19 @@ ul.header-meta li {
 @media (min-width: 768px) {
 	.split-layout {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 6fr 4fr;
 		/* Twee gelijke kolommen */
 		align-items: start;
 		gap: 40px;
-		max-width: 90em;
+		max-width: 100%;
+		width: 100%;
 	}
 }
 
 /* Is dit nodig? */
 
 .images img {
-	width: 75%;
+	width: 100%;
 	height: auto;
 	display: block;
 	margin-bottom: 10px;
@@ -328,10 +352,6 @@ code {
 
 .header-title {
 	margin: 0;
-	/* Verwijder standaard margins die de uitlijning verpesten */
-	font-size: 1.5rem;
-	/* Je gewenste titelgrootte */
-	line-height: 1.2;
 }
 
 .header-meta {
@@ -388,9 +408,7 @@ code {
 
 .postlist-date,
 .postlist-item:before {
-	font-size: 0.8125em;
-	/* 13px /16 */
-	color: var(--color-gray-90);
+	
 }
 
 .postlist-date {
@@ -398,7 +416,6 @@ code {
 }
 
 .postlist-link {
-	font-size: 1.1875em;
 	/* 19px /16 */
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
