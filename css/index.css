@@ -48,7 +48,7 @@ body::before {
 /* Global stylesheet */
 * {
 	box-sizing: border-box;
-	font-size: clamp(1rem, 0.5rem + 1vw, 1.8rem);
+	font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
 }
 
 @view-transition {
@@ -81,6 +81,8 @@ main {
   /* Dit is de 'magie': main pakt alle resterende ruimte op, 
      waardoor de footer naar beneden wordt geduwd */
   flex: 1;
+  max-width: 1400px;
+  margin: auto;
 }
 
 footer {
