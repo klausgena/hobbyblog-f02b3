@@ -74,12 +74,12 @@ export default async function (eleventyConfig) {
 			limit: 10,
 		},
 		metadata: {
-			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
+			language: "nl",
+			title: "Nicolas Severyns",
+			subtitle: "Mijn hobbyblog.",
+			base: "https://n.svrns.com/",
 			author: {
-				name: "Your Name"
+				name: "Nicolas Severyns"
 			}
 		}
 	});
