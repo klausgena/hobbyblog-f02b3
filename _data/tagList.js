@@ -1,1 +1,1 @@
-export default ['fotograferen', 'programmeren', 'musiceren', 'procrastineren', 'schrijven'];
+export default ['fotograferen', 'prutsen', 'musiceren', 'procrastineren', 'schrijven'];
