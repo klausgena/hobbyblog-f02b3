@@ -1,6 +1,7 @@
 ---
 title: "Tamagotsji"
 period: "2026"
+image: "tamagotsji_1.jpg"
 tags: ["prutsen"]
 ---
 

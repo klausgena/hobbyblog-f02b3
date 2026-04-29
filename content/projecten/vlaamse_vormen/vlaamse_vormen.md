@@ -1,6 +1,7 @@
 ---
 title: "Vlaamse vormen"
 period: "2023"
+image: "rond-punt.png"
 tags: ["fotograferen"]
 ---
 

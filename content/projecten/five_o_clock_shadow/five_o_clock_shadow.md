@@ -1,6 +1,7 @@
 ---
 title: "Five o'clock shadow"
 period: "2024"
+image: "./05262024NS_COLLAGE_05.jpg"
 tags: ["fotograferen"]
 ---
 

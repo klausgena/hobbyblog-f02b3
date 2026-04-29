@@ -1,6 +1,7 @@
 ---
 title: "The Hero's Journey"
 period: "2024"
+image: "HerosJourney.jpg"
 tags: ["fotograferen"]
 ---
 {% splitContainer %}

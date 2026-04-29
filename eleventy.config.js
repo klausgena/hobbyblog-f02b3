@@ -105,6 +105,15 @@ export default async function (eleventyConfig) {
 			animated: true,
 		},
 	});
+
+	// Projectspecifieke configuratie
+
+	eleventyConfig.addCollection("projecten", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("content/projecten/**/*.md");});
+
+	// Kopieer alle afbeeldingen uit de projectenmap mee naar de output
+eleventyConfig.addPassthroughCopy("content/projecten/**/*.{jpg, jpeg, png, webp}");
+
 	// Mijn shortcodes
 
 	// Container shortcode (voor de teksthelft)
@@ -123,6 +132,8 @@ export default async function (eleventyConfig) {
         </aside>
       </section>`;
 	});
+
+	
 
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);

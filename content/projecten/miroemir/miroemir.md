@@ -1,6 +1,7 @@
 ---
 title: "Miroe Mir"
 period: "2025"
+image: "./miroe_mir_fragment.jpg"
 tags: ["fotograferen"]
 ---
 

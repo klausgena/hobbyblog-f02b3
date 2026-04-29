@@ -1,16 +1,3 @@
 <footer>
-  {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-    <nav>
-        <h2 class="visually-hidden">Top level navigation menu</h2>
-        <ul class="nav">
-            {%- for entry in collections.all | eleventyNavigation %}
-                <li class="nav-item">
-                    <a href="{{ entry.url }}" {% if entry.url == page.url %} aria-current="page" {% endif %}>{{ entry.title }}</a>
-                </li>
-                |
-            {%- endfor %}
-        </ul>
-    </nav>
-    <p>
-    Copyright© Nicolas Severyns 2026, e-mail, instagram, rubrieken, misschien in drie of vier kolommen, tenzij mobiel
+<p>Ik ben Nicolas Severyns. <a href="mailto:nicolasseveryns@gmail.com">Mail me</a> of <a href="https://www.instagram.com/severynsnicolas/" target="_blank">volg me</a>. Gemaakt met <a href="https://www.11ty.dev/">Eleventy</a>.</p>
 </footer>
